@@ -28,26 +28,23 @@ enum CASE {
 	RN, //reverse < none
 	RR  // reverse < reverse
 };
+
 //values
-const int ENERGY_MAXIMUM = 1.0e9;
+const ll ENERGY_MAXIMUM = 1.0e9;
 const int NUMBER_OF_CASES = 4;
-const int ELEMENT_MAXIMUM = 1.0e5;
-const int ANSWER_MAXIMUM = ELEMENT_MAXIMUM * ENERGY_MAXIMUM + 1;
+const ll ELEMENT_MAXIMUM = 1.0e5;
+const ll ANSWER_MAXIMUM = ELEMENT_MAXIMUM * ENERGY_MAXIMUM + 1;
 
 //variables
 string letters[ELEMENT_MAXIMUM + 1];
-int c[ELEMENT_MAXIMUM + 1], n;
+ll c[ELEMENT_MAXIMUM + 1], n;
 ll cache[ELEMENT_MAXIMUM + 1][NUMBER_OF_CASES];
-
-
 
 int main() {
 
 	//fast I/O
 	ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 	
-	
-
 	//input
 	cin >> n;
 	for (int i = 0; i < n; i++) {
@@ -73,13 +70,15 @@ int main() {
 		suffixReverse.resize(letters[i + 1].size());
 		reverse_copy(letters[i].begin(), letters[i].end(), prefixReverse.begin());
 		reverse_copy(letters[i + 1].begin(), letters[i + 1].end(), suffixReverse.begin());
+		//we can use above function through including algorithm header file
 
 		bool flag =
 			letters[i] <= letters[i + 1] ||
 			letters[i] <= suffixReverse ||
 			prefixReverse <= letters[i + 1] ||
 			prefixReverse <= suffixReverse;
-		//if 4 cases does not works -> flag is false;
+		//if 4 cases are false then flag is false.
+		//this means strings can't be sorted in lexicographically ordered.
 
 		if (letters[i] <= letters[i + 1]) {//NN 
 			cache[i][NN] = min(cache[i + 1][NN], cache[i + 1][NR]);
@@ -94,19 +93,19 @@ int main() {
 			cache[i][RR] = min(cache[i + 1][RN], cache[i + 1][RR]) + c[i];
 		} 
 		if(!flag) {
-			for (int k = 0; i < 4; i++) {
-				cache[i][k] = -1;
+			for (int j = 0; j < NUMBER_OF_CASES; j++) {
+				cache[i][j] = -1;
 			}
 		}
 	}
 
-	//find answser
+	//find minimum total amount of energy Vasiliy has to spent.
 	ll ans = ANSWER_MAXIMUM;
 	for (int i = 0; i < NUMBER_OF_CASES; i++) {
 		ans = min(ans, cache[0][i]);
 	}
 
 	//output
-	cout << ans;
+	cout << (ans == ANSWER_MAXIMUM ? -1 : ans);
 
 }
