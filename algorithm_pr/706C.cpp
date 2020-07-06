@@ -15,6 +15,7 @@ If it is impossible to reverse some of the strings such that they will be locate
 Otherwise, print the minimum total amount of energy Vasiliy has to spent.
 
 */
+
 #include<iostream>
 #include<string>
 #include<algorithm>
@@ -61,7 +62,8 @@ int main() {
 		}
 	}
 	letters[n] = "zz" + letters[n - 1] + "zz";
-	
+	//above 
+
 	//dp
 	string prefixReverse, suffixReverse;
 	for (int i = n - 1; i >= 0; i--) {
@@ -70,14 +72,14 @@ int main() {
 		suffixReverse.resize(letters[i + 1].size());
 		reverse_copy(letters[i].begin(), letters[i].end(), prefixReverse.begin());
 		reverse_copy(letters[i + 1].begin(), letters[i + 1].end(), suffixReverse.begin());
-		//we can use above function through including algorithm header file
+		//the above function can be used, including algorithm header file.
 
 		bool flag =
 			letters[i] <= letters[i + 1] ||
 			letters[i] <= suffixReverse ||
 			prefixReverse <= letters[i + 1] ||
 			prefixReverse <= suffixReverse;
-		//if 4 cases are false then flag is false.
+		//if 4 cases are false, flag is false.
 		//this means strings can't be sorted in lexicographically ordered.
 
 		if (letters[i] <= letters[i + 1]) {//NN 
@@ -107,5 +109,7 @@ int main() {
 
 	//output
 	cout << (ans == ANSWER_MAXIMUM ? -1 : ans);
-
+	//the key approach in this problem
+	//in case the impossible number, ANSWER_MAX, is continuously transmitted and output.
+	//-1 should be printed instead of ANSWER_MAX.
 }
