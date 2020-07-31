@@ -1,4 +1,5 @@
 ﻿/*
+Dynamic Programming
 C. Hard problem
 https://codeforces.com/problemset/problem/706/C
 
