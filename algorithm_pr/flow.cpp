@@ -1,18 +1,8 @@
-//source code for praticing bellman ford Algorithm
+//source code for praticing ford-fulkerson Algorithm
 
-#include<cstdio>
-#include<cassert>
-#include<cstring>
-#include<map>
-#include<set>
-#include<time.h>
 #include<algorithm>
-#include<stack>
 #include<queue>
-#include<utility>
-#include<cmath>
 #include<iostream>
-#include<string>
 #include<vector>
 using namespace std;
 
@@ -21,7 +11,7 @@ const int MAX_V = 100;
 int V;
 int capacity[MAX_V + 1][MAX_V + 1], flow[MAX_V][MAX_V];
 
-int bellmanFord(int source, int sink) {
+int FordFulkerson (int source, int sink) {
 	memset(flow, 0, sizeof(flow));
 	int totalFlow = 0;
 

@@ -28,7 +28,7 @@ int C, N, M, input, u, v;
 int wins[MAX_N + 2], capacity[SIZE + 2][SIZE + 2], flow[SIZE + 2][SIZE + 2];
 pair<int, int> match[MAX_M];
 
-int bellmanFord(int source, int sink) {
+int FordFulkerson(int source, int sink) {
 	//init flow edge
 	memset(flow, 0, sizeof(flow));
 	int totalFlow = 0;
@@ -90,7 +90,7 @@ int isChampionshipable(int totalWins) {
 	}
 	capacity[PLAYER_X][SINK] = totalWins - wins[PLAYER_X];
 
-	return bellmanFord(SOURCE, SINK) == M && flow[PLAYER_X][SINK] == capacity[PLAYER_X][SINK];
+	return FordFulkerson(SOURCE, SINK) == M && flow[PLAYER_X][SINK] == capacity[PLAYER_X][SINK];
 
 }
 

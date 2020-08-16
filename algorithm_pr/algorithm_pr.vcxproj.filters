@@ -13,6 +13,9 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
+    <Filter Include="소스 파일\algospot">
+      <UniqueIdentifier>{4afb5487-6f61-4b77-b590-a143f83437bb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WILDCARD.cpp">
@@ -440,6 +443,9 @@
     </ClCompile>
     <ClCompile Include="MATCHFIX.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="bipartitematching.cpp">
+      <Filter>소스 파일\algospot</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
