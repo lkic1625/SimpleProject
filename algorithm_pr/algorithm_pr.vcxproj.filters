@@ -462,5 +462,11 @@
     <ClCompile Include="scpc3.cpp">
       <Filter>소스 파일\scpc</Filter>
     </ClCompile>
+    <ClCompile Include="방속의 거울.cpp">
+      <Filter>소스 파일\scpc</Filter>
+    </ClCompile>
+    <ClCompile Include="BISHOPS.cpp">
+      <Filter>소스 파일\algospot</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
