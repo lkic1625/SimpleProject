@@ -468,5 +468,8 @@
     <ClCompile Include="BISHOPS.cpp">
       <Filter>소스 파일\algospot</Filter>
     </ClCompile>
+    <ClCompile Include="TRAPCARD.cpp">
+      <Filter>소스 파일\algospot</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
