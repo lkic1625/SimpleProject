@@ -5,32 +5,40 @@
 
 using namespace std;
 
-string str = "";
-string parseStr;
-stack<int> s;
-queue<int> q;
+string input, parseStr;
 
-int cur = 0;
+//node's current location
+int cur;
 
 enum 
 {
 	SQUARE_BRACKETS = '[',
+	//SQUARE_BRACKETS + 2 == ']'
 	BRACKETS = '('
+	//BRACKETS + 1 == ')'
 };
 
-int Length;
-bool isBalance(int bracket) {
-	if (cur == parseStr.size() - 1) return false;
-	bool ret = true;
-	if (parseStr[cur] == SQUARE_BRACKETS || parseStr[cur] == BRACKETS) {
-		ret = ret && isBalance(parseStr[cur++]);
+//function call STACK
+bool isBalance() {
+	stack<int> s;
+	s.push('[');
+
+	for (auto bracket : parseStr) {
+		if (s.empty()) return false;
+		int top = s.top();
+
+		if (bracket == SQUARE_BRACKETS || bracket == BRACKETS) {
+			s.push(bracket);
+		} 
+		else if (bracket - top == 2 || bracket - top == 1) {
+			s.pop();
+		}
+		else {
+			return false;
+		}
 	}
-	else if (parseStr[cur] - bracket == 2 || parseStr[cur] - bracket == 1) {
-		return ret && true;
-	}
-	else {
-		return false;
-	}
+	//if stack is not empty, is not balance
+	return s.empty();
 }
 
 int main() {
@@ -38,12 +46,19 @@ int main() {
 	//FAST IO
 	ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 
-	string input;
 	while (true) {
-		cur = 0;
-		getline(cin, str, '.');
-		if (str == ".") break;
-		for (auto iter : str) {
+
+		//init
+		parseStr = "";
+
+		//input
+		getline(cin, input);
+		
+		//exit flag
+		if (input == ".") break;
+		
+		//iteration for parsing 
+		for (auto iter : input) {
 			if (iter == BRACKETS
 				|| iter == BRACKETS + 1
 				|| iter == SQUARE_BRACKETS
@@ -52,11 +67,13 @@ int main() {
 				parseStr += iter;
 			}
 		}
-		
-	
-		parseStr += ']';
 
-		cout << (isBalance('[') ? "yes" : "no") << '\n';
+		parseStr += "]";
+		
+		//output
+		//parse string that length == 0 is balance
+		bool outputFlag = parseStr.size() == 0 || isBalance();
+		cout << (outputFlag ? "yes" : "no") << '\n';
 	}
 	
 }

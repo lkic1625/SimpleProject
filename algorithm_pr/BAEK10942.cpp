@@ -2,35 +2,35 @@
 
 using namespace std;
 
-int cache[2001][2001], N, S, E, M, num[2001];
-
-bool dp(int S, int E) {
-	if (S > E) return false;
-	if (S == E) return true;
-	
-	int& ret = cache[S][E];
-	if (ret != -1) return ret;
-
-	return ret = (num[S] == num[E]) && dp(S + 1, E - 1);
-}
+int dp[2001][2001], N, S, E, M, n[2001];
 
 int main() {
+	//FAST IO
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
 	cout.tie(NULL);
 	cin >> N;
 	for (int i = 0; i < N; i++) {
-		cin >> num[i];
+		cin >> n[i];
 	}
 	
-	for (int i = 0;  i < N; i++) {
-		for (int j = 0; j < N; j++) {
-			cache[i][j] = -1;
+	//dp
+	for (int diff = 0; diff < N; diff++) {
+		for (int s = 0, e = s + diff; s < N; s++, e++) {
+			if (s == e) {
+				dp[s][e] = true;
+			} 
+			else if (e - s == 1) {
+				dp[s][e] = (n[e] == n[s]);
+			}
+			else {
+				dp[s][e] = (n[e] == n[s] && dp[s + 1][e - 1]);
+			}
 		}
 	}
 	cin >> M;
 	for (int i = 0; i < M; i++) {
 		cin >> S >> E;
-		cout << dp(S - 1, E - 1) << endl;
+		cout << dp[S - 1][E - 1] << '\n';
 	}
 }
