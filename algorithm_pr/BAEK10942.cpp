@@ -15,6 +15,9 @@ int main() {
 	}
 	
 	//dp
+	//It should be noted here that the order in which DP matrices are filled is diagonal,
+  	//which creates a lower triangulation matrix.
+	
 	for (int diff = 0; diff < N; diff++) {
 		for (int s = 0, e = s + diff; s < N; s++, e++) {
 			if (s == e) {
