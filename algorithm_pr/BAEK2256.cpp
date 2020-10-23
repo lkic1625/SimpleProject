@@ -15,12 +15,14 @@ long long dp[MAX_N][MAX_M];
 long long memo(int i, int j) {
 	//j: Number of pairs to pull out
 	//i: current index
-	//basis cases
 
+	//basis cases
 	//check negative index or Insufficient nodes to pull out.
 	if (j < 0 || i + j * 3 > N) return MAX;
+
 	if (i == N - 1) return 0;
 
+	//memoization
 	long long& ret = dp[i][j];
 	if (ret != -1) return ret;
 
