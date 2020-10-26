@@ -483,5 +483,20 @@
     <ClCompile Include="BAEK2256.cpp">
       <Filter>소스 파일\BAEKJOON</Filter>
     </ClCompile>
+    <ClCompile Include="nhn01.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="nhn02.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="nhn03.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BAEK15972.cpp">
+      <Filter>소스 파일\BAEKJOON</Filter>
+    </ClCompile>
+    <ClCompile Include="BAEK14719.cpp">
+      <Filter>소스 파일\BAEKJOON</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
