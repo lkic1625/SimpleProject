@@ -32,7 +32,7 @@ long long memo(int i, int j) {
 
 int main() {
 	//init
-	//Memset is a char array only initialization function 
+	//memset is a char array only initialization function 
 	//and sometimes does not work well in large arrays.
 	for (int i = 0; i < MAX_N; i++) {
 		for (int j = 0; j < MAX_N; j++) {
