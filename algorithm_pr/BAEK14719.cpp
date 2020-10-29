@@ -52,7 +52,7 @@ int main() {
 		int next = map[left] < map[right] ? left : right;
 
 		if (map[next] > h) {
-			//edge relaxation
+			//edge relaxation(update distance)
 			for (int j = left + 1; j < right; j++) {
 				map[j] = map[next];
 				ans += map[next] - h;
