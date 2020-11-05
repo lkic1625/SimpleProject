@@ -52,7 +52,7 @@ int LCA(int u, int v) {
 	}
 	hp_u = max(hp_u, HP[0][u]);
 	hp_v = max(hp_v, HP[0][v]);
-	//cout << u << " " << v << " " << parent[0][u] << " " << parent[0][v] << endl;
+	//return maximum weight in this path
 	return max(hp_u, hp_v);
 }
 
@@ -112,7 +112,6 @@ int main() {
 	}
 
 	//init
-
 	for (int i = 1; i <= N; i++) {
 		visited[i] = false;
 	}
@@ -132,6 +131,8 @@ int main() {
 	}
 	
 	dfs(0, 1, 0);
+	//LCA
+	//O(NlogN)
 	for (int k = 1; k < LOG_MAX; k++) {
 		for (int i = 1; i <= N; i++) {
 			parent[k][i] = parent[k - 1][parent[k - 1][i]];
@@ -139,10 +140,12 @@ int main() {
 		}
 	}
 
+	//O(QlogN)
 	for (int i = 0; i < Q; i++) {
 		//query
 		cin >> a >> b >> X;
 		//플레이어의 최대 HP 제한이 X일 때, 체크포인트 A에서 시작하여서 체크포인트 B로 이동할 수 있는 방법이 있는가?
+		
 		int hp = LCA(a, b);
 		bool flag = hp <= X;
 		cout << (flag  ? "YES" : "NO") << '\n';

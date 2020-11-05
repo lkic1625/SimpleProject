@@ -513,5 +513,14 @@
     <ClCompile Include="폭탄.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="BAEK16468.cpp">
+      <Filter>소스 파일\BAEKJOON</Filter>
+    </ClCompile>
+    <ClCompile Include="BAEK15956.cpp">
+      <Filter>소스 파일\BAEKJOON</Filter>
+    </ClCompile>
+    <ClCompile Include="BAEK15957.cpp">
+      <Filter>소스 파일\BAEKJOON</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
