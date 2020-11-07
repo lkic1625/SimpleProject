@@ -2,9 +2,9 @@
 #include<vector>
 #include<algorithm>
 #include<queue>
-#include<string.h>
+
 #include<map>
-typedef long long ll;
+typedef long long ll; 
 
 using namespace std;
 
