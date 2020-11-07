@@ -63,14 +63,14 @@ int main() {
 	}
 
 	//prim algorithm
-	for (int direction = 0; direction < 2; direction++) {
+	for (int axis = 0; axis < 2; axis++) {
 		int pointer = 1;
 		set<tuple<int, int>> s;
 		
 		for (int i = 1; i <= N; i++) {
-			Node cur = sorted[direction][i];
+			Node cur = sorted[axis][i];
 			for (int j = pointer; j < i; j++) {
-				Node bef = sorted[direction][j];
+				Node bef = sorted[axis][j];
 				if (cur.x - bef.x > r) {
 					s.erase({ bef.y, j });
 				}
@@ -82,7 +82,7 @@ int main() {
 			auto it = s.lower_bound({ cur.y, N + 1 });
 			if (it != s.end()) {
 				auto [y, index] = *it;
-				Node bef = sorted[direction][index];
+				Node bef = sorted[axis][index];
 				if (abs(cur.y - bef.y) <= r + d) {
 					merge(bef.index, cur.index);
 				}
@@ -90,7 +90,7 @@ int main() {
 			if (it != s.begin()) {
 				it--;
 				auto [y, index] = *it;
-				Node bef = sorted[direction][index];
+				Node bef = sorted[axis][index];
 				if (abs(cur.y - bef.y) <= r + d) {
 					merge(bef.index, cur.index);
 				}

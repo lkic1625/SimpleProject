@@ -525,5 +525,8 @@
     <ClCompile Include="BAEK7574.cpp">
       <Filter>소스 파일\BAEKJOON</Filter>
     </ClCompile>
+    <ClCompile Include="BAEK3392.cpp">
+      <Filter>소스 파일\BAEKJOON</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
