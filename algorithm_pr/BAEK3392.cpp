@@ -32,7 +32,7 @@ void update_lazy(int node, int left, int right) {
 
 long long update(int lo, int hi, int val, int node, int left, int right) {
 	update_lazy(node, left, right);
-	if (lo > right || left > hi) {
+	if (right < lo || hi < left) {
 		return seg[node];
 	}
 	if (lo <= left && right <= hi) {
@@ -41,8 +41,10 @@ long long update(int lo, int hi, int val, int node, int left, int right) {
 		return seg[node];
 	}
 
-	int mid = (left + right) / 2;
-	return seg[node] = update(lo, hi, val, node * 2, left, mid) + update(lo, hi, val, node * 2 + 1, mid + 1, right);
+	int mid = (left + right) >> 1;
+	seg[node] = update(lo, hi, val, node * 2, left, mid) + update(lo, hi, val, node * 2 + 1, mid + 1, right);
+	return seg[node] = isOverlap[node] ? right - left + 1 : seg[node];
+	
 }
 
 int main() {
@@ -58,21 +60,21 @@ int main() {
 	sort(location, location + 2 * N, [](const Coord& lv, const Coord& rv) {
 		return lv.x < rv.x;
 	});
-	update(location[0].y1, location[0].y2, location[0].isEndpoint, 1, 0, MAX_COORD);
+	update(location[0].y1, location[0].y2 - 1, location[0].isEndpoint, 1, 0, MAX_COORD - 1);
 	int prev_x = location[0].x;
 	long long ans = 0;
 
 	for (int i = 1; i < 2 * N; i++) {
 		auto [x, y1, y2, isEndpoint] = location[i];
 		long long width = x - prev_x;
-		long long height = max(0LL, seg[1] - 1);
+		long long height = seg[1];
 		
 		ans += (width * height);
-		update(y1, y2, isEndpoint, 1, 0, MAX_COORD);
+		update(y1, y2 - 1, isEndpoint, 1, 0, MAX_COORD - 1);
 		prev_x = x;
 	}
 
 	cout << ans << '\n';
 
 
-}
+} 
