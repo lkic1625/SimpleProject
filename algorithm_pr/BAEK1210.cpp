@@ -12,6 +12,7 @@ vector<int> adj[MAX_N];
 int n, m, source, sink, cost, a, b;
 
 void connect(int u, int v, int cost) {
+	//connection between the two vertices must be marked with adjacent list.
 	adj[u].push_back(v);
 	adj[v].push_back(u);
 	capacity[u][v] = cost;
