@@ -93,9 +93,6 @@
     <ClCompile Include="일감호에 다리 놓기.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="동아리 홍보하기.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="LRU.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -550,6 +547,21 @@
       <Filter>소스 파일\BAEKJOON</Filter>
     </ClCompile>
     <ClCompile Include="BAEK2419.cpp">
+      <Filter>소스 파일\BAEKJOON</Filter>
+    </ClCompile>
+    <ClCompile Include="BAEK2927.cpp">
+      <Filter>소스 파일\BAEKJOON</Filter>
+    </ClCompile>
+    <ClCompile Include="BAEK17429.cpp">
+      <Filter>소스 파일\BAEKJOON</Filter>
+    </ClCompile>
+    <ClCompile Include="BAEK15955_UF.cpp">
+      <Filter>소스 파일\BAEKJOON</Filter>
+    </ClCompile>
+    <ClCompile Include="동아리 홍보하기.cpp">
+      <Filter>소스 파일\BAEKJOON</Filter>
+    </ClCompile>
+    <ClCompile Include="BAEK20055.cpp">
       <Filter>소스 파일\BAEKJOON</Filter>
     </ClCompile>
   </ItemGroup>
