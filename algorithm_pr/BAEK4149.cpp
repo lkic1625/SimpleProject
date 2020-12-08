@@ -11,39 +11,18 @@ using namespace std;
 vector<ull> factors;
 ull n;
 
-ull add_with_mod(ull a, ull b, ull mod) {
-	a = a % mod;
-	b = b % mod;
-	return (a + b) % mod;
-}
+//NOTICE: __int128_t type only use in gcc
 
-ull mul_with_mod(ull a, ull b, ull mod) {
-	a = a % mod;
-	b = b % mod;
-	ull ret = 0;
-	while (b > 0) {
-		if (b % 2 == 1) {
-			ret = add_with_mod(ret, a, mod);
-		}
-		a = add_with_mod(a, a, mod);
-		b = b >> 1;
-	}
-
-	return ret;
-}
-
-
-
-//return a^b % mod
+//return a^b % mod with divide and conquer
 ull pow_with_mod(ull a, ull b, ull mod) {
 
 	a = a % mod;
 	ull ret = 1;
 	while (b > 0) {
 		if (b % 2 == 1) {
-			ret = mul_with_mod(ret, a, mod);
+			ret = (__int128_t)ret * a % mod;
 		}
-		a = mul_with_mod(a, a, mod);
+		a = (__int128_t)a * a % mod;
 		b = b >> 1;
 	}
 
@@ -88,11 +67,13 @@ ull abs(ull a) {
 	return a > 0 ? a : -1 * a;
 }
 
+//Euclidean algorithm
 ull gcd(ull a, ull b) {
 	if (a < b) swap(a, b);
 	if (b == 0) return a;
 	return gcd(b, a % b);
 }
+
 
 void factorize(ull n) {
 	if (n <= 1) return;
@@ -108,6 +89,7 @@ void factorize(ull n) {
 		return ((__int128_t)x * x + c) % n;
 	};
 
+	//Brent's Algorithm: Faster than Floyd's cycle-fiding algorithm
 	int m = 128;
 	int l = 1;
 	while (g == 1) {
@@ -120,7 +102,7 @@ void factorize(ull n) {
 			xs = x;
 			for (int i = 0; i < m && i < l - k; i++) {
 				x = f(x);
-				q = mul_with_mod(q, abs(y - x), n);
+				q = (__int128_t)q * abs(y - x) % n;
 			}
 			g = gcd(q, n);
 			k += m;
