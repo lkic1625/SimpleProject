@@ -9,8 +9,7 @@ int A[MAX_N][MAX_N], B[MAX_N][MAX_N];
 int sum_of_A[MAX_N][MAX_N], sum_of_B[MAX_N][MAX_N];
 
 inline int calc_sum(int start_x, int start_y, int end_x, int end_y, int sum[MAX_N][MAX_N]) {
-	int ret = (sum[end_y][end_x] - sum[end_y][start_x - 1]) - (sum[start_y - 1][end_x] - sum[start_y - 1][start_x - 1]);
-	return ret;
+	return (sum[end_y][end_x] - sum[end_y][start_x]) - (sum[start_y][end_x] - sum[start_y][start_x]);
 }
 
 
