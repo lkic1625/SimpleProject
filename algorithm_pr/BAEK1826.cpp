@@ -18,7 +18,7 @@ int main() {
 		return lv.location < rv.location;
 	};
 	auto compare_by_gas = [](GasStation lv, GasStation rv) {
-		return lv.gas + lv.location < rv.gas + rv.location;
+		return lv.gas < rv.gas;
 	};
 
 	cin >> N;
