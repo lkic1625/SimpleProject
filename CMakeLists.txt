@@ -6,4 +6,4 @@ set(CMAKE_CXX_STANDARD 14)
 
 
 add_executable(SimpleProject
-        algorithm_pr/")
+        "algorithm_pr/BAEK9997.cpp")
