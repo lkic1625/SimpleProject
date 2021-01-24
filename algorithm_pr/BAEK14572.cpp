@@ -19,10 +19,6 @@ int N, K, D, M, d, A;
 Student students[MAX_N];
 
 
-int bitCount(int bit){
-    return __builtin_popcount(bit);
-}
-
 void groupOperation(int index, int operation){
     for(int i = 0; i < K; i++){
         if((1 << i) & students[index].alg){
@@ -56,6 +52,7 @@ int main(){
     sort(students, students + N, [](const Student& lv, const Student& rv){
         return lv.ability < rv.ability;
     });
+
     int lo = 0, hi = 0, E = 0;
     //two pointers
     while (hi < N) {

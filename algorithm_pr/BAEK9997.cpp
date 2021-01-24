@@ -16,16 +16,14 @@ int word_to_bits[MAX];
 string words[MAX];
 
 
-int traversal(int i, int contained, int subset) {
+int traversal(int i, int contained) {
     if(i > N) return 0;
     if(contained == CONTAINED_ALL){
         return pow(2, N - i);
     }
 
     int contained_with_i = contained OR word_to_bits[i];
-    int subset_with_i = subset OR (1 << i);
-
-    return traversal(i + 1, contained_with_i, subset_with_i) + traversal(i + 1, contained, subset);
+    return traversal(i + 1, contained_with_i) + traversal(i + 1, contained);
 }
 
 int main() {
