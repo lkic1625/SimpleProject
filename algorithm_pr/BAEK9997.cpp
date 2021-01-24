@@ -24,6 +24,7 @@ int traversal(int i, int contained, int subset) {
 
     int contained_with_i = contained OR word_to_bits[i];
     int subset_with_i = subset OR (1 << i);
+
     return traversal(i + 1, contained_with_i, subset_with_i) + traversal(i + 1, contained, subset);
 }
 
@@ -41,7 +42,4 @@ int main() {
 	//for (int subset = combination; subset; subset = ((subset - 1) AND combination)) {
         //TLE
 	//}
-
-
-
 }
