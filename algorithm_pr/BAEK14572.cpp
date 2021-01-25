@@ -25,7 +25,7 @@ void groupOperation(int index, int operation){
             alg_count[i] += operation;
         }
     }
-};
+}
 
 void insertStudent(int index){
     groupOperation(index, INSERT);

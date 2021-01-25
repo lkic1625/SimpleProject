@@ -34,10 +34,11 @@ int main() {
 			word_to_bits[i] = word_to_bits[i] OR 1 << (alphabet - 'A');
 		}
 	}
-	int ans = traversal(0, 0, 0);
+	int ans = traversal(0, 0);
 	cout << ans;
 	//combination = (1 << N) - 1;
 	//for (int subset = combination; subset; subset = ((subset - 1) AND combination)) {
         //TLE
+        //6천만개
 	//}
 }
