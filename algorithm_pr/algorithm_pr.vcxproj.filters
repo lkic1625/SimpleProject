@@ -138,9 +138,6 @@
     <ClCompile Include="소스12.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="습격자 초라기.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="여행 가자.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -595,6 +592,15 @@
       <Filter>소스 파일\BAEKJOON</Filter>
     </ClCompile>
     <ClCompile Include="BAEK9997.cpp">
+      <Filter>소스 파일\BAEKJOON</Filter>
+    </ClCompile>
+    <ClCompile Include="BAEK17421.cpp">
+      <Filter>소스 파일\BAEKJOON</Filter>
+    </ClCompile>
+    <ClCompile Include="menu renewal.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="습격자 초라기.cpp">
       <Filter>소스 파일\BAEKJOON</Filter>
     </ClCompile>
   </ItemGroup>

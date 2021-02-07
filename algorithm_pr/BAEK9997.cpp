@@ -25,7 +25,10 @@ int main() {
 	for (int subset = combination; subset; (subset - 1) & combination) {
 		//2^26 TLE
 	}
+	int a = 0;
+	//or == || and == &&
+	if (a < 0 or a > 10 and a == 10 xor a == 10) {
 
-
+	}
 
 }
