@@ -603,5 +603,8 @@
     <ClCompile Include="습격자 초라기.cpp">
       <Filter>소스 파일\BAEKJOON</Filter>
     </ClCompile>
+    <ClCompile Include="BAEK3865.cpp">
+      <Filter>소스 파일\BAEKJOON</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

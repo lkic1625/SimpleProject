@@ -10,7 +10,7 @@ const long long MAX_N = 100'000 + 5, MAX_HEIGHT = 1'000'000, TIME_BOUND = MAX_N 
 long long N, K, height[MAX_N], ans, k;
 
 struct Segment {
-    int left, right, height, pre_count;
+    int left, right, height, segmented;
 };
 
 int main() {
@@ -22,23 +22,40 @@ int main() {
     stack<Segment> st;
   
     for (int i = 0; i <= N; i++) {
-        if (i < N) {
+        if (i != N) {
             cin >> height[i];
         }
 
         int left = i;
-        int acc = 0;
+        int segmented = 0;
         bool isFirst = true;
-
-        while (st.empty() && st.top().height >= height[i]) {
+        
+        while (!st.empty() && st.top().height >= height[i]) {
             left = st.top().left;
 
-            int epsilon = st.top().height - height[i];
-            if (epsilon > 0) {
-
+            long long diff = st.top().height - height[i];
+            if (diff > 0) {
+                if (isFirst) {
+                    isFirst = false;
+                    k++;
+                    segmented++;
+                }
+                k -= st.top().segmented;
             }
+            else {
+                segmented += st.top().segmented;
+            }
+
+            if (k == K) {
+                cout << ans << endl;
+                return 0;
+            }
+            ans += diff * (st.top().right - st.top().left + 1);
+            st.pop();
         }
-        
+
+        st.push({ left, i, height[i], segmented });
     }
+    cout << -1;
 
 }
