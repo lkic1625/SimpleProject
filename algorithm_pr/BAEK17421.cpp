@@ -9,6 +9,8 @@ const long long MAX_N = 100'000 + 5, MAX_HEIGHT = 1'000'000, TIME_BOUND = MAX_N 
 
 long long N, K, height[MAX_N], ans, k;
 
+int array[100000000000000];
+
 struct Segment {
     int left, right, height, segmented;
 };
