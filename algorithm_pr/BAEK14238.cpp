@@ -41,7 +41,7 @@ string dp(int u, int v, Counter counter) {
 	if (counter.is_empty()) { //counter == { 0, 0, 0 }
 		return EMPTY_STRING;
 	}
-
+	
 	string& ret = cache[u][v][counter.to_index()];
 	if (ret.length() != 0) {
 		return ret;
