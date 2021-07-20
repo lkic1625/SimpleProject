@@ -627,5 +627,17 @@
     <ClCompile Include="BAEK17611.cpp">
       <Filter>소스 파일\BAEKJOON</Filter>
     </ClCompile>
+    <ClCompile Include="BAEK13334.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ZIMBABWE.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BAEK2164.cpp">
+      <Filter>소스 파일\BAEKJOON</Filter>
+    </ClCompile>
+    <ClCompile Include="BOARDCOVER2.cpp">
+      <Filter>소스 파일\algospot</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
