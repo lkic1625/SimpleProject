@@ -12,7 +12,7 @@ enum class Block : int {
 class Rotatable {
 	
 public:
-	virtual void rotate() = 0;
+	virtual Rotatable rotate() = 0;
 };
 
 class Map {
@@ -29,12 +29,17 @@ public:
 	Lattice(int h, int w) {
 		
 	}
-	void rotate() override {
-
+    Rotatable rotate() override {
+        return this;
 	}
 };
 
 int H, W, T, R, C;
+
+int dfs(Point bef, Point cur) {
+
+}
+
 
 int main() {
 	cin >> T;
