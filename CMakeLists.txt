@@ -6,4 +6,4 @@ set(CMAKE_CXX_STANDARD 14)
 
 
 add_executable(SimpleProject
-        algorithm_pr/BAEK11054.cpp)
+        algorithm_pr/LIS_nlong_BAEK14004.cpp)
