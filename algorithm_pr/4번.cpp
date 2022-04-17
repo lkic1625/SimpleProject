@@ -4,8 +4,6 @@
 int T, N, n;
 long long cache[1000002];
 
-
-
 long long mul(long long x, long long y) {
 	long long ans = 1;
 	while (y > 0) {
@@ -27,7 +25,7 @@ int main() {
 
 	}
 
-	scanf_s("%d", &T); //9999°³ ¸Â´Â ÀÌÀ¯?.
+	scanf_s("%d", &T); //9999ï¿½ï¿½ ï¿½Â´ï¿½ ï¿½ï¿½ï¿½ï¿½?.
 	int test_case = T;
 	cache[1] = 3;
 	for (int idx = 2; idx <= 1000000; idx++) {
@@ -35,7 +33,7 @@ int main() {
 		long long& ret = cache[idx];
 		ret = cache[n] * 3 * (4 * n + 2);
 		ret %= MOD;
-		//¿¬»ê ¶§¹®¿¡ ¿À·ù³ª´Â °Í?
+		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½?
 		ret *= mul(n + 2, MOD - 2);
 		ret %= MOD;
 		if (ret <= 0) printf("%lld", ret);
