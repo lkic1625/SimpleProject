@@ -34,7 +34,6 @@ struct SegmentTree {
 			_update(index, diff, node * 2, left, mid);
 			_update(index, diff, node * 2 + 1, mid + 1, right);
 		}
-		
 	}
 
 	void update(int index, int value) {
