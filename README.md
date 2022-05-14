@@ -1,3 +1,5 @@
-## SimpleProject
+## PS 
 ***
-백준, algospot, codeforces 문제 등을 올립니다.
+BOJ, Algospot, Codeforces 푼 문제 올립니다.
+
+https://solved.ac/profile/lkic16252
