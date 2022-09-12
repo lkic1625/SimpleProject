@@ -6,4 +6,4 @@ set(CMAKE_CXX_STANDARD 17)
 
 
 add_executable(SimpleProject
-        algorithm_pr/LEET-Longest-Repeating-Character-Replacement.cpp)
+        algorithm_pr/LEET-stone-game-v.cpp)
